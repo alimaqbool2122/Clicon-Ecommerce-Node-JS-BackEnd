@@ -27,6 +27,17 @@ app.use(
 
 app.use(express.json());
 
+// DB middleware
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error("DB connection failed:", err.message);
+    res.status(503).json({ error: "Database unavailable" });
+  }
+});
+
 // Root health check route — fixes Vercel 404
 app.get("/", (req, res) => {
   res.json({ message: "Clicon Ecommerce API is running ✅" });
