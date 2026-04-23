@@ -1,0 +1,39 @@
+{
+  "name": "clicon-ecommerce-backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/alimaqbool2122/Clicon-Ecommerce-BackEnd-Node-JS#readme",
+  "bugs": {
+    "url": "https://github.com/alimaqbool2122/Clicon-Ecommerce-BackEnd-Node-JS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alimaqbool2122/Clicon-Ecommerce-BackEnd-Node-JS.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed:admin": "node seeds/createAdmin.js"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^1.41.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "handlebars": "^4.7.9",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.4.1",
+    "multer": "^2.1.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemailer": "^8.0.5",
+    "nodemon": "^3.1.14"
+  }
+}
