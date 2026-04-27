@@ -40,13 +40,13 @@ export const createProduct = async (req, res) => {
       description: description ? description.trim() : "",
       price: price ? price : 0,
       discountPrice: discountPrice ? discountPrice : 0,
-      mainImage: req.file ? req.file.path : null,
+      mainImage: req.files?.mainImage?.[0]?.path || null,
       badge: badge ? badge : [],
       stock: isStock,
       category: category ? category : "",
       brand: brand ? brand : "",
       model: model ? model : "",
-      thumbnails: req.file ? req.file.path : [],
+      thumbnails: req.files?.thumbnails?.map((file) => file.path) || [],
       size: size ? size : [],
       memory: memory ? memory : [],
       color: color ? color : [],
@@ -151,7 +151,8 @@ export const updateProduct = async (req, res) => {
     if (description !== undefined) updateData.description = description.trim();
     if (price !== undefined) updateData.price = price;
     if (discountPrice !== undefined) updateData.discountPrice = discountPrice;
-    if (req.file) updateData.mainImage = req.file.path;
+    if (req.files?.mainImage?.[0])
+      updateData.mainImage = req.files.mainImage[0].path;
     if (badge) updateData.badge = badge;
     if (stock !== undefined) {
       updateData.stock = stock === "true" || stock === true;
@@ -159,7 +160,8 @@ export const updateProduct = async (req, res) => {
     if (category) updateData.category = category.trim();
     if (brand) updateData.brand = brand.trim();
     if (model) updateData.model = model.trim();
-    if (req.file) updateData.thumbnails = req.file.path;
+    if (req.files?.thumbnails?.length)
+      updateData.thumbnails = req.files.thumbnails.map((f) => f.path);
     if (size) updateData.size = size;
     if (memory) updateData.memory = memory;
     if (color) updateData.color = color;
