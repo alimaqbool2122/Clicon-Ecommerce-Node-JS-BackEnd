@@ -21,7 +21,7 @@ router.post(
   createProduct,
 );
 
-router.get("/get-all-products", isAuthenticated, getAllProducts);
+router.get("/get-all-products", getAllProducts);
 
 router.put(
   "/update-product/:id",
@@ -34,6 +34,6 @@ router.put(
 );
 
 router.delete("/delete-product/:id", isAuthenticated, deleteProduct);
-router.get("/product-details/:id", isAuthenticated, getSingleProduct);
+router.get("/product-details/:id", getSingleProduct);
 
 export default router;

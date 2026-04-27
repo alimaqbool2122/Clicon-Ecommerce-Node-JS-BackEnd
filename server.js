@@ -14,11 +14,7 @@ const PORT = process.env.PORT || 3000;
 // CORS — must be before any routes
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:3002",
-      process.env.FRONTEND_URL,
-    ],
+    origin: true,
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Accept"],

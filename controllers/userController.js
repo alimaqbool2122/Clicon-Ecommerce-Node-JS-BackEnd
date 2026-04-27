@@ -199,6 +199,14 @@ export const loginUser = async (req, res) => {
       });
     }
 
+    // Role check for admin login
+    if (user.role !== "admin") {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password",
+      });
+    }
+
     // Generate Access Token
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
       expiresIn: "7d",

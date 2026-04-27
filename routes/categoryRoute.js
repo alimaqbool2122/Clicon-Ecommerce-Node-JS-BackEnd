@@ -17,7 +17,7 @@ router.post(
   createCategory,
 );
 
-router.get("/get-allcategories", isAuthenticated, getAllCategories);
+router.get("/get-allcategories", getAllCategories);
 router.put(
   "/update-category/:id",
   isAuthenticated,
