@@ -15,7 +15,6 @@ const PORT = process.env.PORT || 3000;
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow all origins - callback with true to allow all
       callback(null, true);
     },
     credentials: true,
@@ -23,7 +22,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization", "Accept"],
   }),
 );
-app.options("*", cors());
 
 app.use(express.json());
 
