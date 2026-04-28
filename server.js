@@ -23,6 +23,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization", "Accept"],
   }),
 );
+app.options("*", cors());
 
 app.use(express.json());
 
