@@ -14,7 +14,10 @@ const PORT = process.env.PORT || 3000;
 // CORS — must be before any routes
 app.use(
   cors({
-    origin: true,
+    origin: (origin, callback) => {
+      // Allow all origins - callback with true to allow all
+      callback(null, true);
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Accept"],
